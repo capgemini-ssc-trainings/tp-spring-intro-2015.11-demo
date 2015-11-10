@@ -14,5 +14,5 @@ This repository contains training material for link:http://spring.io/[Spring]. T
 
 == Copyright and Licensing
 
-Copyright (C) 2014-2014 Krzysztof Sobkowiak +
+Copyright (C) 2014-2015 Capgemini +
 Free use of this software is granted under the terms of the link:LICENSE[Apache License].
