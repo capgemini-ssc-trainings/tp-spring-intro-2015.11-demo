@@ -1,1 +1,18 @@
-# TP Spring Introduction
+image:http://www.combc.eu/img/partners/oss-logo-spring.png[width="25%"]
+
+= TP Spring Introduction
+
+This repository contains training material for link:http://spring.io/[Spring]. The training covers following themes:
+
+* Basic themes:
+** Introduction to Spring Framewrok
+** Spring Boot
+** Spring Data JPA
+** REST Services with Spring MVC
+** Spring AOP
+
+
+== Copyright and Licensing
+
+Copyright (C) 2014-2014 Krzysztof Sobkowiak +
+Free use of this software is granted under the terms of the link:LICENSE[Apache License].
