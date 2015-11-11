@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.StopWatch;
 
 @Aspect
-@Component
 public class CallMonitoringAspect {
     Logger logger = org.slf4j.LoggerFactory.getLogger(CallMonitoringAspect.class);
 
