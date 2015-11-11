@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Book Demo</title>
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-theme.css" rel="stylesheet">
+<link href="css/custom.css" rel="stylesheet">
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<script type="text/javascript" src="lib/jquery/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="lib/angularjs/angular.js"></script>
+</head>
+<body data-ng-app="book-demo">
+	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target=".navbar-collapse">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">Book Demo</a>
+			</div>
+			<div class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#">Home</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="container" data-ng-controller="BookSearchCntl">
+		<div class="page-header">
+			<h1>Book Demo</h1>
+			<p class="lead">Search for books and manage them...</p>
+		</div>
+		<div class="starter-template">
+			<div class="row placeholder">
+				<div class="col-md-2">
+					<label>Title:</label>
+				</div>
+				<div class="col-md-3">
+					<input type="text" data-ng-model="searchCriteria.title">
+				</div>
+				<div class="col-md-2">
+					<label>Publication year:</label>
+				</div>
+				<div class="col-md-3">
+					<input type="text" data-ng-model="searchCriteria.publicationYear">
+				</div>
+				<div class="col-md-1">
+					<button class="btn btn-primary" data-ng-click="search()">Search</button>
+				</div>
+				<div class="col-md-1">
+					<button class="btn btn-success" data-ng-click="addNewBook()">Add
+						New...</button>
+				</div>
+			</div>
+			<div class="table-responsive" data-ng-show="anyResultFound()">
+				<table class="table table-striped">
+					<tr>
+						<th>Authors</th>
+						<th>Title</th>
+						<th>Publication year</th>
+						<th>&nbsp;</th>
+						<th>&nbsp;</th>
+					</tr>
+					<tr data-ng-repeat="book in resultList">
+						<td><span data-ng-bind="book.authors"></span></td>
+						<td><span data-ng-bind="book.title"></span></td>
+						<td><span data-ng-bind="book.publicationYear"></span></td>
+						<td><button class="btn btn-sm btn-danger"
+								data-ng-click="deleteBook(book)">Delete...</button></td>
+						<td><button class="btn btn-sm btn-info"
+								data-ng-click="editBook(book)">Edit...</button></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/ng-template" id="book-edit.html">
+        <div class="modal-header">
+            <h3>Edit/Add a Book</h3>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+		        <div class="col-md-6">
+			        <label>Authors:</label>
+		        </div>
+		        <div class="col-md-6">
+			        <input type="text" data-ng-model="book.authors" required>
+		        </div>
+	        </div>
+			<div class="row">
+		        <div class="col-md-6">
+			        <label>Title:</label>
+		        </div>
+		        <div class="col-md-6">
+			        <input type="text" data-ng-model="book.title" required>
+		        </div>
+	        </div>
+			<div class="row">
+		        <div class="col-md-6">
+			        <label>Publication year:</label>
+		        </div>
+		        <div class="col-md-6">
+			        <input type="text" data-ng-model="book.publicationYear" required>
+		        </div>
+	        </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" ng-click="saveBookAndClose()">Save and Close</button>
+            <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+        </div>
+    </script>
+	<script type="text/ng-template" id="loader.html">
+        <img src="images/spinner.gif">
+    </script>
+	<script type="text/javascript"
+		src="lib/angular-ui/ui-bootstrap-tpls-0.10.0.js"></script>
+	<script type="text/javascript" src="js/book-demo.js"></script>
+</body>
+</html>
